@@ -4,9 +4,9 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(220, 200, 'Catch The Snails!', {
+        this.add.text(120, 200, 'THE CLUTTER BETWEEN US', {
             fontSize: '48px',
-            fill: '#ffffff'
+            fill: '#6b4b2d'
         });
 
         this.add.text(250, 320, 'Click to Start', {

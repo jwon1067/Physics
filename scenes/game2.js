@@ -1,6 +1,6 @@
-class Game extends Phaser.Scene {
+class Game2 extends Phaser.Scene {
     constructor() {
-        super('game');
+        super('game2');
     }
     preload() {
         this.load.image('background', 'assets/aptBg.png');
@@ -89,31 +89,17 @@ class Game extends Phaser.Scene {
     }
 
     catchSnail(player, snail) {
+    if (!snail.active) return;
 
-        // Prevent duplicate overlap calls
-        if (!snail.active) {
-            return;
-        }
+    snail.setVelocity(0, 0);
+    snail.disableBody(true, true);
+    this.sound.play('catch');
 
-        // Stop movement immediately
-        snail.setVelocity(0, 0);
+    this.score += 1;
+    this.scoreText.setText('Score: ' + this.score);
 
-        // Disable physics/body
-        snail.disableBody(true, true);
-
-        // Play sound
-        this.sound.play('catch');
-
-        // Increase score
-        this.score += 1;
-        this.scoreText.setText('Score: ' + this.score);
-
-        if (this.score >= 10) {
-            this.scene.start('game2');
-            return;
-        }
-
-        // Update score text
-        this.scoreText.setText('Score: ' + this.score);
+    if (this.score >= 10) {
+        this.scene.start('game3');
     }
+}
 }

@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <title>Catch The Snails</title>
 
-    <script type="module" src="https://scripts.democlips.dev/demo-clip-recorder.mjs" data-clip-root="root"></script>
+    <!-- <script type="module" src="https://scripts.democlips.dev/demo-clip-recorder.mjs" data-clip-root="root"></script> -->
     <script src="lib/phaser.js"></script>
 
+    <script src="scenes/loading.js"></script>
     <script src="scenes/intro.js"></script>
     <script src="scenes/menu.js"></script>
     <script src="scenes/game.js"></script>
+    <script src="scenes/game2.js"></script>
+    <script src="scenes/game3.js"></script>
 
     <style>
         body {
             margin: 0;
-            background: black;
+            background: #fff5ebff;
         }
 
         canvas {
@@ -24,7 +27,7 @@
     </style>
 </head>
 <body>
-    <div id="root"></div>
+     <!-- <div id="root"></div> -->
 <script>
 const config = {
     type: Phaser.AUTO,
@@ -36,7 +39,7 @@ const config = {
             debug: false
         }
     },
-    scene: [Intro, Menu, Game]
+    scene: [Loading, Intro, Menu, Game, Game2, Game3]
 };
 
 const game = new Phaser.Game(config);
