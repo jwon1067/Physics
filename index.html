@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Catch The Snails</title>
+    <title>The Clutter Between Us</title>
 
     <!-- <script type="module" src="https://scripts.democlips.dev/demo-clip-recorder.mjs" data-clip-root="root"></script> -->
     <script src="lib/phaser.js"></script>
@@ -10,9 +10,10 @@
     <script src="scenes/loading.js"></script>
     <script src="scenes/intro.js"></script>
     <script src="scenes/menu.js"></script>
-    <script src="scenes/game.js"></script>
-    <script src="scenes/game2.js"></script>
-    <script src="scenes/game3.js"></script>
+    <script src="scenes/level1_Intro.js"></script>
+    <script src="scenes/level1.js"></script>
+    <script src="scenes/level2.js"></script>
+    <script src="scenes/level3.js"></script>
 
     <style>
         body {
@@ -39,7 +40,7 @@ const config = {
             debug: false
         }
     },
-    scene: [Loading, Intro, Menu, Game, Game2, Game3]
+    scene: [Loading, Intro, Menu, Level1_Intro, Level1, Level2, Level3]
 };
 
 const game = new Phaser.Game(config);

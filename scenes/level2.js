@@ -1,15 +1,8 @@
-class Game3 extends Phaser.Scene {
-    constructor() {
-        super('game3');
+class Level2 extends Phaser.Scene {
+    constructor(){
+        super('level2');
     }
-    preload() {
-        this.load.image('background', 'assets/aptBg.png');
-        this.load.image('trashCan', 'assets/trashCan.png');
-        this.load.image('snail', 'assets/greySnail.png');
-
-        this.load.audio('catch', 'assets/freesound_community-plastic-trash-can-98819.mp3');
-    }
-    create() {
+    create(){
         // Background
         this.add.image(400, 300, 'background');
 
@@ -53,8 +46,7 @@ class Game3 extends Phaser.Scene {
             this
         );
     }
-
-    update() {
+    update(){
         // Player movement
         if (this.cursors.left.isDown) {
             this.player.setVelocityX(-300);
@@ -98,12 +90,8 @@ class Game3 extends Phaser.Scene {
     this.score += 1;
     this.scoreText.setText('Score: ' + this.score);
 
-    if (this.score >= 10) {
-        this.add.text(200, 250, 'YOU WIN!', {
-            fontSize: '48px',
-            fill: '#ffffff'
-        });
-        this.physics.pause();
+    if (this.score >= 20) {
+        this.scene.start('level3');
     }
 }
 }

@@ -1,27 +1,18 @@
 
 // Beveal Shape for button
-class Beveal extends Phaser.GameObjects.Container {
+class ButtonBg extends Phaser.GameObjects.Container {
     constructor(scene, x, y) {
         super(scene, x, y);
         // Shapes
-        let topT = scene.add.triangle(0, 0, 73, 23, 148, 73, 223, 23, 0xADB5BD);
-        let leftT = scene.add.triangle(0, 0, 23, 33, 73, 66, 23, 103, 0x495057);
-        let rightT = scene.add.triangle(0, 0, 173, 103, 123, 66, 173, 33, 0x343A40);
-        let bottomT = scene.add.triangle(0, 0, 73, 98, 148, 38, 223, 98, 0x212529);
-        
-        let rect = scene.add.graphics();
-            rect.fillGradientStyle(0x212529, 0x212529, 0x212529, 0xADB5BD, 1);
-            rect.fillRect(13, 8, 119, 48);
-        
+        let brownButton = scene.add.image(0, 0, 'brwButton').setScale(4, 2);
+
         // Container of shapes
-        this.add([topT, leftT, rightT, bottomT, rect]);
+        this.add([brownButton]);
 
         // Add the container to the scene's display list
         scene.add.existing(this);
     }
 }
-// How to add to scene
-// this.myShape = new Beveal(this, x, y);
 
 //Interactive Button
 class Button extends Phaser.GameObjects.Container {
@@ -29,40 +20,35 @@ class Button extends Phaser.GameObjects.Container {
         super(scene, x, y);
 
         // Interactive button        
-        let buttonShape = new Beveal(scene, 0, 0);
+        let pressButton = new ButtonBg(scene, 0, 0);
 
         // Add label text: text(x,y,text,size, color).orgin(x, y)
-        let label = scene.add.text(29, 17, text, { 
-            fontSize: '30px', 
-            fill: '#fff' });
+        let label = scene.add.text(0, -18, text, { 
+            fontSize: '20px', 
+            fill: '#6b4b2d' });
 
         // center text inside button
-        label.setPosition(223 / 8, 103 / 6);
+        label.setOrigin(0.5, 0.5);
 
         // Add components to the container
-        this.add([buttonShape, label]);
+        this.add([pressButton, label]);
         
         // Make the whole container interactive // define interaction area
         this.setSize(223, 103);
         this.setInteractive();
 
         // Add events (Hover effects and click)
-        this.on('pointerover', () => this.setScale(1.05));
-        this.on('pointerout', () => this.setScale(1));
-        this.on('pointerdown', () => this.setScale(0.95));
+        this.on('pointerover', () => {this.setScale(1.5)});
+        this.on('pointerout', () => {this.setScale(1)});
+        this.on('pointerdown', () => {this.setScale(0.95)});
         this.on('pointerup', () => {
-            this.setScale(1.05);
             callback();
-        });
+        }); 
 
         // Add the container to the scene
         scene.add.existing(this);
     }
 }
-//Add buttons
-//  new Button(this, 160, 330, 'Start', () => {
-//      this.scene.start('loading'); // must match key exactly
-//  });
 
 class Loading extends Phaser.Scene{
     constructor(){
