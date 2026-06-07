@@ -12,8 +12,11 @@
     <script src="scenes/menu.js"></script>
     <script src="scenes/level1_Intro.js"></script>
     <script src="scenes/level1.js"></script>
+    <script src="scenes/level2_Intro.js"></script>
     <script src="scenes/level2.js"></script>
+    <script src="scenes/level3_Intro.js"></script>
     <script src="scenes/level3.js"></script>
+    <script src="scenes/win.js"></script>
 
     <style>
         body {
@@ -34,13 +37,20 @@ const config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+
+    backgroundColor: '#fff5eb', // default background color
+
+    scale:{
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     physics: {
         default: 'arcade',
         arcade: {
             debug: false
         }
     },
-    scene: [Loading, Intro, Menu, Level1_Intro, Level1, Level2, Level3]
+    scene: [Loading, Intro, Menu, Level1_Intro, Level1, Level2_Intro, Level2, Level3_Intro, Level3, Win]
 };
 
 const game = new Phaser.Game(config);

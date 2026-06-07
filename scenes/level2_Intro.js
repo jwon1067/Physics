@@ -1,15 +1,15 @@
-class Level1_Intro extends Phaser.Scene {
+class Level2_Intro extends Phaser.Scene {
     constructor(){
-        super('level1_Intro');
+        super('level2_Intro');
     }
     create(){
 
-        this.add.text(300, 150, 'Level 1', {
+        this.add.text(300, 150, 'Level 2', {
             fontSize: '48px',
             fill: '#6b4b2d'
         });
 
-        this.add.text(285, 210, 'Goal: 10 points', {
+        this.add.text(285, 210, 'Goal: 20 points', {
             fontSize: '25px',
             fill: '#6b4b2d'
         });
@@ -18,7 +18,7 @@ class Level1_Intro extends Phaser.Scene {
         new Button(this, 390, 290, 'Play', () => {
             this.cameras.main.fadeOut(300);
             this.cameras.main.once('camerafadeoutcomplete', () => {
-                this.scene.start('level1');
+                this.scene.start('level2');
             }); 
         });
         

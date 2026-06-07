@@ -12,7 +12,9 @@ class Level1 extends Phaser.Scene {
 
         this.scoreText = this.add.text(20, 20, 'Score: 0', {
             fontSize: '32px',
-            fill: '#ffffff'
+            fill: '#ffffff',
+            stroke: '#000000',
+            strokeThickness: 6,
         });
 
         // Player
@@ -102,7 +104,7 @@ class Level1 extends Phaser.Scene {
         this.scoreText.setText('Score: ' + this.score);
 
         if (this.score >= 10) {
-            this.scene.start('level2');
+            this.scene.start('level2_Intro');
             return;
         }
 
