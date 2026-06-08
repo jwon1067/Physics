@@ -81,7 +81,7 @@ class Loading extends Phaser.Scene{
         for(let i = 0; i < 10; i++){
             let bars = this.add.rectangle(110 + i * 59, 270, 50, 30, 0x6b4b2d)
             .setOrigin(0, 0.5) // set origin
-            .setScale(0); // initalize rectangles as invisible
+            .setAlpha(0); // initalize rectangles as invisible
 
             // Load individual Bars
             this.tweens.add({
@@ -90,13 +90,13 @@ class Loading extends Phaser.Scene{
                 scaleY: 1, // make a loading bar visible vertically
                 alpha: 1, // Opacity: full
                 duration: 200, //duration of action
-                delay: i * 200, // delay in between bars
+                delay: i * 300, // delay in between bars
                 ease: 'Power2', //rate of change of animation
             });
         }
 
         // Fade out to new scene
-        this.time.delayedCall(2000, () => {
+        this.time.delayedCall(3000, () => {
             this.cameras.main.fadeOut(300);
             this.cameras.main.once('camerafadeoutcomplete', () => {
                 this.scene.start(this.nextScene);

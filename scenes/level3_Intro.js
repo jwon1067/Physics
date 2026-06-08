@@ -4,12 +4,12 @@ class Level3_Intro extends Phaser.Scene {
     }
     create(){
 
-        this.add.text(300, 150, 'Level 3', {
+        this.add.text(290, 150, 'Level 3', {
             fontSize: '48px',
             fill: '#6b4b2d'
         });
 
-        this.add.text(285, 210, 'Goal: 30 points', {
+        this.add.text(275, 210, 'Goal: 30 points', {
             fontSize: '25px',
             fill: '#6b4b2d'
         });
